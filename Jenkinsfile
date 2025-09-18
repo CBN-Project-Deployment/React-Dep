@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GCP_PROJECT = 'di-gcp-351221' 
+        GCP_PROJECT = 'di-gcp-351221'
         GCP_KEY_FILE = '/home/mrityunjaikumar_dwivedy/di-gcp-351221-5d28d91f767a.json'
         NODE_VERSION = '18'
     }
@@ -10,10 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Use credentialsId if your GitHub repo is private
-                git branch: 'main', 
-                    url: 'https://github.com/Mrityunjai-demo/React-Dep.git', 
-                    
+                git branch: 'main', url: 'https://github.com/Mrityunjai-demo/React-Dep.git'
             }
         }
 
