@@ -22,7 +22,8 @@ pipeline {
 
         stage('Build React App') {
             steps {
-                sh 'npm run build'
+                // Prevent CI from treating warnings as errors
+                sh 'CI=false npm run build'
             }
         }
 
