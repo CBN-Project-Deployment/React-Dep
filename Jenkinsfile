@@ -4,7 +4,7 @@ pipeline {
     environment {
         GCP_PROJECT = 'di-gcp-351221'
         GCP_KEY_FILE = '/home/mrityunjaikumar_dwivedy/di-gcp-351221-5d28d91f767a.json'
-        NODE_VERSION = '18'
+        NODE_VERSION = '24.8.0'
     }
 
     stages {
