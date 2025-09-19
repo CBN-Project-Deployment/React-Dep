@@ -32,7 +32,7 @@ pipeline {
                 sh """
                 gcloud auth activate-service-account --key-file=${GCP_KEY_FILE}
                 gcloud config set project ${GCP_PROJECT}
-                gcloud app deploy app.yaml --bucket=gs://gridctrl-staging-gcs/
+                gcloud app deploy app.yaml
                 """
             }
         }
