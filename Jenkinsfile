@@ -2,9 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GCP_PROJECT = 'di-gcp-351221'
-        GCP_KEY_FILE = '/home/mrityunjaikumar_dwivedy/di-gcp-351221-5d28d91f767a.json'
-        NODE_VERSION = '24.8.0'
+        version = '1'
     }
 
     stages {
@@ -29,7 +27,9 @@ pipeline {
         stage('Deploy to GCP App Engine') {
             steps {
                 sh """
-                  gcloud app deploy app.yaml
+                  currentVersion=`gcloud app versions list --sort-by=~version.createTime --limit=1 --format="value(version.id)"`
+                  #version=`expr ${currentVersion} + 1`
+                  gcloud app deploy app.yaml --version=v${version}.0
                 """
             }
         }
