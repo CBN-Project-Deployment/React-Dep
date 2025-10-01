@@ -28,7 +28,7 @@ pipeline {
             steps {
                 sh '''
                   currentVersion=`gcloud app versions list --sort-by=~version.createTime --limit=1 --format="value(version.id)"`
-                  #version=`expr ${currentVersion} + 1`
+                  version=`expr ${currentVersion} + 1`
                   gcloud app deploy app.yaml --version=v${version}
                 '''
             }
