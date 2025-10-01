@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         GCP_PROJECT = 'di-gcp-351221'
+        GCP_KEY_FILE = '/home/mrityunjaikumar_dwivedy/di-gcp-351221-5d28d91f767a.json'
         NODE_VERSION = '24.8.0'
     }
 
@@ -10,6 +11,12 @@ pipeline {
         stage('Get App code from git') {
             steps {
                 git branch: 'main', url: 'https://github.com/Mrityunjai-demo/React-Dep.git'
+            }
+        }
+
+        stage('Install dependencies') {
+            steps {
+                sh 'npm install'
             }
         }
 
