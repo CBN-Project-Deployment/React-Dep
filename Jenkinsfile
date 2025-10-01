@@ -30,6 +30,7 @@ pipeline {
                   currentVersion=`gcloud app versions list --sort-by=~version.createTime --limit=1 --format="value(version.id)" | sed "s/v//"`
                   version=`expr ${currentVersion} + 1`
                   gcloud app deploy app.yaml --version=v${version}
+				  gcloud app deploy dispatch.yaml
                 '''
             }
         }

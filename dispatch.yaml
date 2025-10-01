@@ -1,0 +1,3 @@
+dispatch:
+  - url: "app.nttd.dedyn.io/*"
+    service: gridctrl
