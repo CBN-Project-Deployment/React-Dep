@@ -39,9 +39,11 @@ pipeline {
     post {
         success {
             echo 'Deployment successful!'
+			cleanWs()
         }
         failure {
             echo 'Deployment failed.'
+			cleanWs()
         }
     }
 }
